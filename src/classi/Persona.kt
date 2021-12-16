@@ -16,3 +16,5 @@ fun main() {
     val miaRagazza = Persona("Anna", 40, altezza = 160)//Seconda istanza di persona
     //miaRagazza.stampaDati()//Nome : Anna, Età : 40, Altezza: 160
 }
+
+
