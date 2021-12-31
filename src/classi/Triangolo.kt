@@ -25,6 +25,6 @@ fun main() {
     print("Lunghezza secondo lato obliquo: ")
     var latoObliquo2:Int = readLine()!!.toInt()
     var triangolo = Triangolo(base, latoObliquo1, latoObliquo2)
-    println(triangolo.stampaDati())
-    println(triangolo.controlloTipoTriangolo())
+    triangolo.stampaDati()
+    triangolo.controlloTipoTriangolo()
 }

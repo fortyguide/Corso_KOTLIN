@@ -1,13 +1,16 @@
 package esercitazioneFinale
 
 interface GenerandoNome{
+
     fun boot() : String
 }
 
 abstract class Macchinario(var nomeMacchinario: String) : GenerandoNome{
+
     override fun boot(): String {
         return nomeMacchinario
     }
+
     open fun infoRobot():String{
         println("Il nome del tuo robot è $nomeMacchinario")
         return nomeMacchinario
@@ -16,6 +19,7 @@ abstract class Macchinario(var nomeMacchinario: String) : GenerandoNome{
 
 
 class Robot(nomeMacchinario : String) : Macchinario(nomeMacchinario){
+
     override fun boot():String{
         val fromNumber = 0
         val toNumber = 9
@@ -34,12 +38,19 @@ class Robot(nomeMacchinario : String) : Macchinario(nomeMacchinario){
         return super.infoRobot()
     }
 
-    fun factoryReset(){
-
+    fun factoryReset(): String {
+        if(nomeMacchinario.isNotEmpty()) {
+            println("Il nome $nomeMacchinario è stato formattato!")
+            nomeMacchinario = ""
+        }else{
+            println("Non si può formattare un nome che non esiste!")
+        }
+        return nomeMacchinario
     }
 }
 
 fun main(){
+
     var nomeRobotGenerato = ""
     val robot = Robot(nomeRobotGenerato)
     var max = 0
@@ -55,13 +66,13 @@ fun main(){
             "1" -> {
                 if (nomeRobotGenerato == ""){
                     nomeRobotGenerato = robot.boot()
-                    println(nomeRobotGenerato)
+                    println("Nome generato! Il tuo robot si chiama $nomeRobotGenerato")
                 }else{
-                    println("Il tuo robot ha gia un nome!")
+                    println("Il tuo robot ha gia un nome! Si chiama $nomeRobotGenerato")
                 }
             }
             "2"-> {
-
+                nomeRobotGenerato = robot.factoryReset()
             }
             "3"-> {
                 val robot = Robot(nomeRobotGenerato)
@@ -77,6 +88,6 @@ fun main(){
             else -> {println("Opzione non valida!")}
         }
         println()
-        max++;
+        max++
     }
 }
